@@ -3,34 +3,36 @@ including header content which is common for all pages
 -->
 <%- include ../layouts/header.ejs %>	
 
-<% if (messages.error) { %>
-	<p style="color:red"><%- messages.error %></p>
-<% } %>
 
-<% if (messages.success) { %>
-	<p style="color:green"><%- messages.success %></p>
-<% } %>
 
-<form action="/users/add" method="post" name="form1">
-	<table width="25%" border="0">
-		<tr> 
-			<td>Name</td>
-			<td><input type="text" name="name" id="name" value="<%= name %>" /></td>
-		</tr>
-		<tr> 
-			<td>Age</td>
-			<td><input type="text" name="age" value="<%= age %>" /></td>
-		</tr>
-		<tr> 
-			<td>Email</td>
-			<td><input type="text" name="email" value="<%= email %>" /></td>
-		</tr>
-		<tr> 
-			<td></td>
-			<td><input type="submit" name="Submit" value="Add" /></td>
-		</tr>
-	</table>
-</form>
+<div class="container">
+	<% if (messages.error) { %>
+		<p style="color:red"><%- messages.error %></p>
+	<% } %>
+	
+	<% if (messages.success) { %>
+		<p style="color:green"><%- messages.success %></p>
+	<% } %>
+	<div class="col-md-6">
+		<form action="/users/add" method="post" name="form1">
+			<div class="form-group">
+			  <label for="exampleInputEmail1">Name</label>
+			  <input class="form-control" type="text" name="name" id="name" value="<%= name %>" />
+			</div>
+			<div class="form-group">
+			  <label for="exampleInputPassword1">Age</label>
+			  <input  class="form-control" type="text" name="age" value="<%= age %>" />
+			</div>
+			<div class="form-check">
+				<label for="exampleInputPassword1">Email</label>
+				<input  class="form-control" type="email" name="email" value="<%= email %>" />
+			</div>
+			<br>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		  </form>
+	</div>
+</div>
+
 
 <!--
 including footer content which is common for all pages
